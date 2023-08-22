@@ -16,12 +16,13 @@ const App = () =>{
         <Theme>
             <Container>
                 {/* <WelcomePage /> */}
-                { statusOfGame && <GameFieldContainer>
-                    <TicTacHeader />
-                    <TicTacBoard />
-                </GameFieldContainer>}
+                { statusOfGame && 
+                    <GameFieldContainer>
+                        <TicTacHeader />
+                        <TicTacBoard />
+                    </GameFieldContainer>
+                }
                 {!statusOfGame && <FinshPage />}
-                
             </Container>
         </Theme>
     );

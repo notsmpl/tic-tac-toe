@@ -17,7 +17,7 @@ export const $tictacfeild = createStore<Object>(["","","","","","","","",""])
     .on(updateBoard,(state,payload)=> payload)
     .reset(resetGame);
 
-export const $currentPlayersTurn = createStore<string>('X')
+export const $currentPlayersTurn = createStore<string>('O')
     .on(changePlayerTurn,(state,payload)=>payload)
     .reset(resetGame);
 
