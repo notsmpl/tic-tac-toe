@@ -17,7 +17,6 @@ const SquareFeild = ({value,id}) =>{
     useEffect (() => {
             chekWin();
             chekIfTie();
-            changePlayer();
     }, [feild]) ;
     
     const changePlayer = () => {
@@ -40,7 +39,7 @@ const SquareFeild = ({value,id}) =>{
             });
 
             if (foundedWiningPattern) {
-                changeResult({winner: turn ,state: 'Win'}) 
+                changeResult({winner: firstPlayer ,state: 'Win'}) 
                 changeStatus();
             }
         })
@@ -59,21 +58,20 @@ const SquareFeild = ({value,id}) =>{
         }
     };
     
-    const onClick = (id) => {
-        const updatedBoard = feild.map((value,idx)=>{
-            if(idx===id && value ===''){
-                return turn
-            }
-            else return value
-        })
-        updateBoard(updatedBoard);
+    const onClick = (id,turn) => {
+      /*   console.log({id})
+        console.log({value})
+        console.log({feild}) */
         
-             
+        if(feild[id] === ''){
+            updateBoard({id,turn});
+            changePlayer();
+        }
     };
 
 
     return(
-        <Square id={id} onClick={() => onClick(id)}>{value}</Square>
+        <Square id={id} onClick={() => onClick(id,turn)}>{value}</Square>
     );
 };
 

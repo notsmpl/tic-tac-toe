@@ -5,7 +5,12 @@ interface IResult {
     state?: string
 };
 
-export const updateBoard = createEvent<string>();
+interface IUpdateParams {
+    id: number,
+    turn: string
+}
+
+export const updateBoard = createEvent<IUpdateParams>();
 export const changePlayerTurn = createEvent<string>();
 export const resetGame = createEvent();
 export const changeResult = createEvent<IResult>();
@@ -13,11 +18,18 @@ export const changeStatus = createEvent();
 
 
 
-export const $tictacfeild = createStore<Object>(["","","","","","","","",""])
-    .on(updateBoard,(state,payload)=> payload)
+export const $tictacfeild = createStore<string[]>(["","","","","","","","",""])
+    .on(updateBoard,(state,{id, turn})=>{
+       return state.map((stateValue,idx)=>{
+            if(idx===id && stateValue ===''){
+                return turn
+            }
+            return stateValue
+        })   
+    } )
     .reset(resetGame);
 
-export const $currentPlayersTurn = createStore<string>('O')
+export const $currentPlayersTurn = createStore<string>('X')
     .on(changePlayerTurn,(state,payload)=>payload)
     .reset(resetGame);
 
@@ -32,12 +44,6 @@ export const $status = createStore<boolean>(true)
     .on(changeStatus, payload => !payload )
     .reset(resetGame);
 
-
-
-$currentPlayersTurn.watch(player => console.log(`Player ${player} turn`))
-$tictacfeild.watch(arr => console.log(arr));
-$result.watch(res => console.log(res));
-$status.watch(status => console.log(status))
 
 export const winCondition = [
     [0,1,2],

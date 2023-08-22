@@ -8,7 +8,7 @@ const TicTacBoard = () => {
     const feild = useStore($tictacfeild);
     return(
         <Board>
-            {feild.map((value,idx)=>(<SquareFeild id={idx} value ={value}/>))}
+            {feild?.map((value,idx)=><SquareFeild key={idx} id={idx} value ={value}/>)}
         </Board>
     );
 };

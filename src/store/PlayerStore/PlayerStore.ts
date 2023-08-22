@@ -23,10 +23,3 @@ export const $secondPlayerInfo = createStore<IUser>({})
         ...payload
     }));
 
-
-
-
-
-// $firstPlayerInfo.watch((player) => console.log(`player 1: ${player.name}`))
-// $secondPlayerInfo.watch((player) => console.log(`player 2: ${player.name}`))
-

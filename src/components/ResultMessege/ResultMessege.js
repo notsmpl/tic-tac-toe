@@ -15,7 +15,7 @@ const Messege = styled.p`
         align-items:center;
     }
 `
-const ResultMessege= () => {
+const ResultMessege = () => {
     const result = useStore($result)
 
         if(result.state === 'Win'){
