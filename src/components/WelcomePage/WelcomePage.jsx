@@ -2,7 +2,7 @@
 import React from "react";
 /* import { $firstPlayerInfo, changeFirstPlayer } from "../../store/PlayerStore/PlayerStore.ts";
 import { useStore } from "effector-react"; */
-import { changeStatus } from "../../store/TicTacStore/TicTacStore.ts";
+import { changeStatus } from "../../store/TicTacStore/TicTacStore.js";
 
 const WelcomePage = () => {
     //const player = useStore($firstPlayerInfo)

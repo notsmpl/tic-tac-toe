@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Square from "../../styles/TicTacBoard/Square";
 import {
         updateBoard,
